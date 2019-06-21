@@ -1,0 +1,274 @@
+// Imports Bootstrap
+@import "variables";
+@import "node_modules/bootstrap/scss/bootstrap";
+
+// Custom Imports
+@import "typography";
+@import "navbar";
+// Common
+%font-style-size-11 {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  font-family: $font-family-alt;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.header {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: center / cover no-repeat url("http://lorempixel.com/output/technics-q-c-1366-768-5.jpg"), $gray-300;
+}
+
+.heading {
+  margin-bottom: 2.5rem;
+}
+
+.navbar .nav-link,
+.sub-heading {
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.sub-heading {
+  font-family: $font-family-alt;
+}
+
+.section {
+  padding-top: $measure;
+  padding-bottom: $measure;
+  // padding-top: $measure / 2;
+  // padding-bottom: $measure / 2;
+  // @include media-breakpoint-up (md) {
+  //   padding-top: $measure;
+  //   padding-bottom: $measure;
+  // }
+}
+
+.browserupgrade {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+// Sections
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: -$measure;
+  flex: 1;
+  text-align: center;
+
+  .heading {
+    margin-bottom: 1.75rem;
+  }
+
+  .text {
+    background: rgba($white, .36);
+    padding: 0.25rem 1rem;
+  }
+
+  .arrow {
+    position: absolute;
+    bottom: 30px;
+    transition: transform .25s ease-in-out;
+    @include media-breakpoint-up(md) {
+      bottom: 60px;
+    }
+
+    &:hover {
+      transform: translateY(5px);
+    }
+  }
+}
+
+.about {
+  text-align: center;
+  padding-bottom: $measure-big;
+
+  .container {
+    @include media-breakpoint-up(lg) {
+      width: 960px;
+    }
+  }
+}
+
+.choose-feeder {
+  .image {
+    background: center / cover no-repeat url("http://lorempixel.com/output/technics-q-c-1366-768-4.jpg");
+    min-height: 400px;
+  }
+
+  .text {
+    background: $gray-100;
+    padding-top: $measure * 2;
+    padding-bottom: $measure * 2;
+    @include media-breakpoint-up(sm) {
+      padding-left: $measure;
+      padding-right: $measure;
+    }
+    @include media-breakpoint-up(lg) {
+      padding-right: 9%;
+    }
+    @include media-breakpoint-up(xl) {
+      padding-right: 12%;
+    }
+    @media screen and (min-width: 1600px) {
+      // padding-right: 18%;
+      padding-right: 350px;
+    }
+  }
+}
+
+.portfolio {
+  text-align: center;
+
+  .filters-btn {
+    margin-top: 50px;
+    margin-bottom: 60px;
+  }
+
+  .btn-filter {
+    @extend %font-style-size-11;
+    background: transparent;
+    border: 0;
+    outline: 0;
+
+    &.is-checked {
+      color: $primary;
+      position: relative;
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: -8px;
+        left: 50%;
+        transform: translate(-50%);
+        height: 3px;
+        width: 100%;
+        background: $primary;
+      }
+    }
+  }
+
+  .btn-outline-primary {
+    @extend %font-style-size-11;
+    margin-top: 115px;
+    margin-bottom: 100px;
+    padding: 1rem 2.5rem;
+  }
+
+  .grid {
+    margin-left: -#{$grid-gutter-width / 2};
+    margin-right: -#{$grid-gutter-width / 2};
+  }
+  /* clear fix */
+  .grid:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+
+  .grid-item {
+    width: 100%;
+    @include media-breakpoint-up(sm) {
+      width: 50%;
+    }
+    @include media-breakpoint-up(md) {
+      width: 33%;
+    }
+    @include media-breakpoint-up(xl) {
+      width: 25%;
+    }
+
+  }
+
+  .grid-item {
+    float: left;
+    height: auto;
+  }
+  // .grid {
+  //   @include media-breakpoint-only(lg) {
+  //     column-count: 4;
+  //   }
+  // }
+  .card-400-400 {
+    min-height: 400px;
+  }
+
+  .card-400-300 {
+    min-height: 300px;
+  }
+
+  .card-400-500 {
+    min-height: 500px;
+  }
+
+  .card {
+    border: 0;
+    color: $white;
+    background: $gray-300;
+
+    &-body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: 1.4rem;
+      background: rgba(63,80,98,0.9);
+      opacity: 0;
+      transition: opacity 0.2s ease-in-out;
+    }
+
+    &:hover .card-body {
+      height: auto;
+      width: auto;
+      opacity: 1;
+    }
+
+    &-title {
+      font-size: 1.125rem;
+      font-family: $font-family-alt;
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      font-weight: 700;
+    }
+
+    &-text {
+      position: relative;
+      padding-bottom: 1.25rem;
+
+      &:after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%);
+        height: 1px;
+        width: 90px;
+        background: $white;
+      }
+    }
+
+    a {
+      color: $white;
+      text-decoration: none;
+    }
+
+    img {
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+}
